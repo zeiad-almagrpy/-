@@ -1,0 +1,83 @@
+*{
+    font-family: 'cairo', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* font */
+header{
+    padding: 30px;
+    text-align: center;
+}
+body{
+    background-color: #f5f5f5;
+}
+header h1{
+    font-size: 35px;
+    color: #333;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+#student-id, #student-name, #student-attendance{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#student-grades{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.grade{
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 30%;
+    border: 1px solid #ccc;
+}
+#student-id:focus, #student-name:focus, #student-attendance:focus, .grade:focus{
+    outline: none;
+    border-color: #007bff;
+}
+button{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+}
+button:hover{
+    background-color: #0056b3;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td{
+    padding: 10px;
+    text-align: center;
+}
+td button{
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+td button:hover{
+    background-color: #007bff;
+}
