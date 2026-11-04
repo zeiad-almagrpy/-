@@ -3,7 +3,9 @@
     padding: 0;
     margin: 0;
 }
-
+ul{
+    list-style: none;
+}
 /* font */
 header{
     padding: 30px;
@@ -15,6 +17,11 @@ body{
 header h1{
     font-size: 35px;
     color: #333;
+}
+header h3{
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
 }
 .container{
     width: 80%;
@@ -80,4 +87,7 @@ td button{
 }
 td button:hover{
     background-color: #007bff;
+}
+.strugglingStudents{
+    margin-top: 200px;
 }

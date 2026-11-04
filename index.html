@@ -13,6 +13,7 @@
 <body dir="rtl">
     <header>
         <h1>نظام إدارة وتحليل نتائج الطلاب</h1>
+        <h3>النظام يستخدم local storage للتخزين المحلي اختبر بنفسك </h3>
     </header>
     <div class="container">
     <div class="student">
@@ -29,6 +30,7 @@
             <label for="student-attendance">نسبة الحضور (%):</label>
             <input type="number" id="student-attendance" required>
             <button id="analyze-btn">تحليل بيانات الطالب</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -44,7 +46,11 @@
             <tbody id="results-body">
             </tbody>
         </table>
-    </div>
+        <div class="strugglingStudents" id="struggling-students">
+            <h2> الطلاب المتعثرين بعد درجات الرافه :</h2>
+            <ul id="struggling-students-body">
+            </ul>
+        </div>
 </div>
     <script src="main.js"></script>
 </body>

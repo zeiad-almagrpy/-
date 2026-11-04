@@ -6,7 +6,7 @@ let g3 = document.getElementById("grade3");
 let att = document.getElementById("student-attendance");
 let analyzeBtn = document.getElementById("analyze-btn");
 let resultBody = document.getElementById("results-body");
-
+let strstudent = document.getElementById("struggling-students-body");
 // قواعد العمل
 const MIN_ATTENDANCE = 75;
 const PASS_MARK = 50;
@@ -51,20 +51,15 @@ if(localStorage.student != null){
 // عند الضغط على الزر
 analyzeBtn.onclick = function () {
 
-
-// حساب مجموع الدرجات
 const total =
     Number(g1.value) +
     Number(g2.value) +
     Number(g3.value);
 
-// حساب المتوسط
 let average = total / 3;
 
-// حساب التقدير
 let letter = getGradeLetter(average);
 
-// حساب النتيجة
 let result = getFinalResult(average, Number(att.value));
 
 // إنشاء كائن الطالب
@@ -82,8 +77,10 @@ let newstu = {
 studata.push(newstu);
 
 localStorage.setItem('student',JSON.stringify(studata))
-clearForm()
-showdata()
+
+
+showdata();
+clearForm();
 };
 
 
@@ -124,5 +121,21 @@ function editStudent(index) {
     g2.value = student.g2;
     g3.value = student.g3;
     att.value = student.attendance;
+    studata.splice(index, 1);
+    showdata();
 }
+function updateStrugglingStudents() {
+const strugglingStudents = studata.filter(student => student.avg < PASS_MARK || student.attendance < MIN_ATTENDANCE);
+const upgradegrade = strugglingStudents.map(student => student.avg +10);
+const totalupgrade = upgradegrade.reduce((acc, curr) => acc + curr, 0);
+if (upgradegrade.length === 0) {
+    strstudent.innerHTML = `<li>عدد الطلاب الذين يحتاجون مراجعة: 0</li>
+    <li> <table><tr><th>التقدير</th><th>العدد</th></tr><tr><td>0</td><td>0</td></tr></table></li>`;
+    return;
+}
+const averageupgrade = totalupgrade / upgradegrade.length;
+strstudent.innerHTML = `<li>عدد الطلاب الذين يحتاجون مراجعة: ${strugglingStudents.length}</li>
+<li> <table><tr><th>التقدير</th><th>العدد</th></tr><tr><td>${averageupgrade.toFixed(2)}</td><td>${strugglingStudents.length}</td></tr></table></li>`;
+}
+updateStrugglingStudents();
 showdata();
